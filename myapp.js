@@ -1,12 +1,12 @@
 var express = require('express')
 var http = require('http');
 var server = http.createServer(app);
-var port = process.env.IP || 3000;
+var port = 3000;
 var io = require('socket.io')(app);
 var app = require('http').createServer(handler);
 var fs = require('fs');
 
-app.listen(80);
+
 
 function handler (req, res) {
   fs.sendFile(__dirname + '/index.html',
