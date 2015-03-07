@@ -1,26 +1,18 @@
-var express = require('express')
+var express = require('express');
 var http = require('http');
-var server = http.createServer(app);
 var port = 3000;
-var io = require('socket.io')(app);
-var app = require('http').createServer(handler);
-var fs = require('fs');
+var app = express();
+var server = http.createServer(app);
+
+var io = require('socket.io').listen(server);
 
 
-
-app.get('/',function handler (req, res) {
-  fs.sendFile(__dirname + '/index.html',
-  function (err, data) {
-    if (err) {
-      res.writeHead(500);
-      return res.end('Error loading index.html');
-    }
-    res.writeHead(200);
-    res.end(data);
-  });
+server.listen(port, function() {
+   console.log('Listening' + port);
 });
 
-server.listen(port, function() {console.log('Listening' + port);
+app.get('/', function (request, response) {
+   response.sendfile(__dirname + '/index.html');
 });
 
 io.on('connection', function (socket) {
