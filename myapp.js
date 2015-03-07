@@ -8,7 +8,7 @@ var fs = require('fs');
 
 
 
-function handler (req, res) {
+app.get('/',function handler (req, res) {
   fs.sendFile(__dirname + '/index.html',
   function (err, data) {
     if (err) {
@@ -18,7 +18,7 @@ function handler (req, res) {
     res.writeHead(200);
     res.end(data);
   });
-}
+});
 
 server.listen(port, function() {console.log('Listening' + port);
 });
