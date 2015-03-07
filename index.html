@@ -1,6 +1,14 @@
 <html>
   <head>
     <script src="createjs-2014.12.12.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+var socket = io.connect('http://vast-beyond-2821.herokuapp.com');
+socket.on('news', function (data) {
+   console.log(data);
+   socket.emit('my other event', { my: 'data' });
+});
+</script>
   </head>
   <body onload="init();">
     <canvas id="demoCanvas" width="1000" height="500"></canvas>
@@ -54,7 +62,7 @@
       }
     </script>
     <script>
-        var image = new createjs.Bitmap("public/ppt.png");
+        var image = new createjs.Bitmap("ppt.png");
         image.x = 500;
         image.y = 100;
         image.addEventListener("click", poni);
@@ -62,5 +70,6 @@
             alert("nagaloc");
         }
     </script>
+    
 </body>
 </html>
