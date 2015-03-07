@@ -1,1 +1,1 @@
-node myApp.js
+node index.js
