@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <script src="createjs-2014.12.12.min.js"></script>
+  </head>
+  <body onload="init();">
+    <canvas id="demoCanvas" width="1000" height="500"></canvas>
+    <script>
+      function init() {
+                  //круг
+        var stage = new createjs.Stage("demoCanvas");
+        var circle = new createjs.Shape();
+        circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
+        circle.x = 100;
+        circle.y = 100;
+        stage.addChild(circle);
+        
+                //квадрат
+        var square = new createjs.Shape();
+        square.graphics.beginFill("DeepBlue").drawRect(200,100,50,50);
+        
+        stage.addChild(square);
+        
+                //линии
+        var square = new createjs.Shape();
+        g = new createjs.Graphics().setStrokeStyle(6).beginStroke("#f1e043").moveTo(200,50).lineTo(300,50).lineTo(340,150).lineTo(160,150).lineTo(200,50);
+        line = new createjs.Shape(g);
+        stage.addChild(line);
+               
+                //текст
+         var txt = new createjs.Text("4et tut ne tak", "bold 30pt Dorsa", "green");
+        txt.y=400;
+        txt.x= 50;
+        stage.addChild(txt);
+        
+                //рисунок
+        stage.addChild(image);
+    stage.update();
+                
+        circle.addEventListener("click", pit);
+        function pit(event){
+                //таймер с бегом
+        createjs.Tween.get(txt, {loop: true})
+          .to({x:50, y:50}, 1000, createjs.Ease.getPowInOut(4))
+          .to({alpha: 1}, 500, createjs.Ease.getPowInOut(2))
+          .to({x: 500}, 500, createjs.Ease.getPowInOut(2))
+          .to({alpha: 0}, 200, createjs.Ease.getPowInOut(2))
+          .to({alpha: 1, y: 200}, 200)
+          .to({x:50}, 500, createjs.Ease.getPowInOut(2));
+
+        createjs.Ticker.setFPS(60);
+        createjs.Ticker.addEventListener("tick", stage);
+        createjs.Ticker
+        }
+      }
+    </script>
+    <script>
+        var image = new createjs.Bitmap("public/ppt.png");
+        image.x = 500;
+        image.y = 100;
+        image.addEventListener("click", poni);
+        function poni(event){
+            alert("nagaloc");
+        }
+    </script>
+</body>
+</html>
