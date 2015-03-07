@@ -1,6 +1,6 @@
 var express = require('express');
 var http = require('http');
-var port = (process.env.PORT || 3000);
+var port = process.env.IP;
 var app = express();
 var server = http.createServer(app);
 
