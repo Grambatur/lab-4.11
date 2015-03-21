@@ -1,13 +1,11 @@
 {
-  "name": "chacha",
-  "version": "0.0.0",
-  "description": "server with `async` for control flow.",
-  "main": "myapp.js",
-  "repository": "",
- 
+  "name": "myapp",
+  "version": "0.10.5",
   "dependencies": {
-    "async": "~0.2.8",
     "express": "~3.2.4",
-    "socket.io": "~0.9.14"
+    "socket.io": "~0.9.14"},
+  "engines": {
+    "node": "0.10.15",
+    "npm": "2.7.1"
   }
 }
