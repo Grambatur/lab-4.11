@@ -1,7 +1,14 @@
 <html>
   <head>
     <script src="createjs-2014.12.12.min.js"></script>
-    
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+var socket = io.connect('http://infinite-ravine-7812.herokuapp.com');
+socket.on('news', function (data) {
+   console.log(data);
+   socket.emit('my other event', { my: 'data' });
+});
+</script>
   </head>
   <body onload="init();">
     <canvas id="demoCanvas" width="1000" height="500"></canvas>
